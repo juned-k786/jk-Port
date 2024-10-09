@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        
+        <title>Personal Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <link rel="stylesheet"
+        href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+
+    </head>
+    <body>
+        <!--header-->
+        <header>
+            <a href="#" class="logo"><img src="img/logo-removebg-preview.png" alt=""></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <ul class="navlist">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Portfolio</a></li>
+                
+                <li><a href="#contact">contact</a></li>
+                <!-- <li><a href="#"></a></li> -->
+            </ul>
+            
+            <a href="junedcv (4).pdf" download class="top-btn">Download CV</a>
+        </header>
+<script>
+
+
+const carouselText = [
+  {text: "Data Scientist", color: "orange"},
+  {text: "Software Developer", color: "orange"},
+  {text: "Freelancer", color: "orange"}
+
+]
+
+$( document ).ready(async function() {
+  carousel(carouselText, "#feature-text")
+});
+
+async function typeSentence(sentence, eleRef, delay = 100) {
+  const letters = sentence.split("");
+  let i = 0;
+  while(i < letters.length) {
+    await waitForMs(delay);
+    $(eleRef).append(letters[i]);
+    i++
+  }
+  return;
+}
+
+async function deleteSentence(eleRef) {
+  const sentence = $(eleRef).html();
+  const letters = sentence.split("");
+  let i = 0;
+  while(letters.length > 0) {
+    await waitForMs(100);
+    letters.pop();
+    $(eleRef).html(letters.join(""));
+  }
+}
+
+async function carousel(carouselList, eleRef) {
+    var i = 0;
+    while(true) {
+      updateFontColor(eleRef, carouselList[i].color)
+      await typeSentence(carouselList[i].text, eleRef);
+      await waitForMs(1500);
+      await deleteSentence(eleRef);
+      await waitForMs(500);
+      i++
+      if(i >= carouselList.length) {i = 0;}
+    }
+}
+
+function updateFontColor(eleRef, color) {
+  $(eleRef).css('color', color);
+}
+
+function waitForMs(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+</script>
+         <!--home-->
+         <section class="home" id="home">
+          <div class="home-text">
+            <h3>Hello, I'm</h3>
+                <h1>Mohd Juned Khan</h1>
+                <div class="typing-container">
+                  <span id="sentence" class="sentence"></span>
+                  <h2 id="feature-text"></h2>
+                  <span class="input-cursor"></span>
+                </div>
+                <!-- <h2>A Data Scientist</h2> -->
+                <h6>I'm very passionate  and
+                dedicated to my work.</h6>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/mohd-juned-khan-126487252/"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/juned-k786"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.instagram.com/_shadow_juned_khan/"><i class='bx bxl-instagram'></i></a>
+                    
+                </div>
+                <a href="#about" class="btns">About Me</a>
+          </div>
+          <div class="home-img">
+         </section>
+                <!--Sub service-->
+               
+                <!--About-->
+                <div  id="about" class="about">
+                <div class="about-wrapper">
+                  <div class="about-left">
+                    <div class="about-left-content">
+                      <div>
+                        <div class="shadow">
+                          <div class="about-img">
+                            <img src="img/me1.jpeg" alt="about-img">
+                          </div>
+                        </div>
+                        <div class="typewriter">
+                          <h2>Mohd Juned Khan</h2>
+                        </div>
+                        
+                        <h3>Data Analyst</h3>
+                      </div>
+                      <ul class="icons">
+                        <li><a href="https://www.linkedin.com/in/mohd-juned-khan-126487252/"><i class='bx bxl-linkedin'></i></a></li>
+                        
+                        <li><a href="https://github.com/juned-k786"><i class='bx bxl-github'></i></a></li>
+                        <li><a href="https://www.instagram.com/_shadow_juned_khan/"><i class='bx bxl-instagram'></i></a></li>
+                        
+                        
+                        
+                        </ul>
+                    </div>
+                  </div>
+                  <div class="try">
+                  <div class="about-right">
+                    <h1>hi<span>!</span></h1>
+                    <h2>Here's who I am & what I do</h2>
+                    <div class="about-btns">
+                    <a href="#"><button type="button" class="btn btn-pink">resume</button></a>
+                    <button type="button" class="btn
+                    btn-white">projects</button>
+                    </div>
+                    <div class="about-para">
+                    <p>I am a passionate Data Scientist creating digital experiences and also a fast learner who has caliber to learn the new technologies as fast as possible and flexible with any domain and  i am a self motivated person and believes in my hardwork .A problem solver with intermediate level of coding knowledge </p>
+                    <ul>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>Age:</strong><span></span>20</li><br>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>Mobile no:</strong><span></span>7080286619</li><br>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>City:</strong><span></span>Ghazipur,Uttar Pradesh,India</li><br>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>Email:</strong><span></span>mjkjunedkhan@gmail.com</li><br>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>Education:</strong><span></span>Bachelor of Technology</li><br>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>University:</strong><span></span>LPU University</li><br>
+                      <li><i class="fa-solid fa-angle-right"></i> <strong>Branch:</strong><span></span>Computer Science and Engineering</li><br>
+                  </ul>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+                <section id="education"> 
+                  <h1>Education</h1>
+                  <div class="timeline">
+                    <div class="container left-container">
+                      <img src="img/school.png">
+                      <div class="text-box">
+                        <h2>Schooling</h2>
+                        <small>2018-2019</small>                
+                        <br>
+                        <h4>Name : Crescent Convent SCHOOL</h4>
+                        <br>
+                        <h4>Address : Dildar nagar Ghazipur,Uttar Pradesh</h4><br>
+                        
+                        <span class="left-container-arrow"></span>
+                      </div>
+                    </div>
+                    <div class="container right-container">
+                      <img src="img/inter.png">
+                      <div class="text-box">
+                        <h2>Intermediate</h2>
+                        <small>2020-2021</small>
+                        <h4>Name : Crescent Convent SCHOOL </h4>
+                        <br>
+                        <h4>Address :Dildar nagar Ghazipur,Uttar Pradesh </h4><br>
+                        <h4>Course : MPC</h4><br>
+                    
+                        
+                        <span class="right-container-arrow"></span>
+                      </div>
+                    </div>
+                    <div class="container left-container">
+                      <img src="img/LPU.png">
+                      <div class="text-box">
+                        <h2>ENGINEERING</h2>
+                        <small>2022-2026</small>
+                        <h4>Name : Lovely Professional University</h4><br>
+                        <h4>Address : Phagwara, Punjab ,India</h4><br>
+                        <h4>Branch: CSE</h4><br>                  
+                        <h4>Cgpa : 7.1</h4>
+                        
+                        <span class="left-container-arrow"></span>
+                      </div>
+                    </div>
+                   </div>
+                   
+              </section>
+            <!----Portfolio-->   
+            
+                <div id="skills" class="skills" >
+                  
+                    <div class="skillsHeader">
+                        <h2 style="color: rgb(240, 57, 57);">Skills</h2>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                    <div class="skillsContainer">
+                        <div class="skill--scroll">
+                            <div class="marquee-container" style="--pause-on-hover: paused; --pause-on-click: paused;">
+                                <div class="marquee" style="--play: running; --direction: normal; --duration: 39s; --delay: 0s; --iteration-count: infinite;">
+                                    <div class="skill--box" style="background-color: rgb(33, 33, 33); box-shadow: rgba(240, 57, 57, 0.3) 0px 0px 30px;">
+                                        <img src="/img/html.png" alt="HTML">
+                                        <h3 style="color: rgb(234, 234, 234);">HTML</h3>
+                                    </div>
+                                        <div class="skill--box" style="background-color: rgb(33, 33, 33); box-shadow: rgba(240, 57, 57, 0.3) 0px 0px 30px;">
+                                            <img src="/img/tableu.png" alt="Tableu">
+                                            <h3 style="color: rgb(234, 234, 234);">Tableu</h3>
+                                        </div>
+                                        <div class="skill--box" style="background-color: rgb(33, 33, 33); box-shadow: rgba(240, 57, 57, 0.3) 0px 0px 30px;">
+                                            <img src="/img/r-programming.png" alt="R-programming">
+                                            <h3 style="color: rgb(234, 234, 234);">R-programming</h3>
+                                        </div>
+                                        <div class="skill--box" style="background-color: rgb(33, 33, 33); box-shadow: rgba(240, 57, 57, 0.3) 0px 0px 30px;">
+                                            <img src="/img/mysql.png" alt="MySQL">
+                                            <h3 style="color: rgb(234, 234, 234);">MySQL</h3>
+                                        </div>
+                                        <div class="skill--box" style="background-color: rgb(33, 33, 33); box-shadow: rgba(240, 57, 57, 0.3) 0px 0px 30px;">
+                                            <img src="/img/java.png" alt="Java"><h3 style="color: rgb(234, 234, 234);">Java</h3>
+                                        </div>
+                                        <div class="skill--box" style="background-color: rgb(33, 33, 33); box-shadow: rgba(240, 57, 57, 0.3) 0px 0px 30px;">
+                                            <img src="/img/c.png" alt="C">
+                                            <h3 style="color: rgb(234, 234, 234);">C</h3>
+                                        </div>
+                                        
+                                        
+                                        </div>
+                                </div>                          
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <section class="contact" id="contact">
+            <div class="containers">
+             
+                <form method="post" id="sheetdb-form"
+         action="https://formspree.io/f/xyyqayla" >
+    name: <input name="data[name]">
+    email: <input name="data[email]">
+    phone: <input name="data[phone]">
+    message: <input name="data[message]">
+    <button type="submit">Submit</button>
+</form>
+
+
+            </div>
+           
+        </section>
+                     <!----link to js-->
+         <script type="text/javascript" src="js/script.js"></script>
+        </div>
+      
+    </body>
+</html>
